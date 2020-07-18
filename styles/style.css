@@ -47,6 +47,7 @@ h6 {
   display: block;
   width: 63px;
   height: 52px;
+  z-index: 10;
 }
 
 .logo__image {
@@ -54,57 +55,48 @@ h6 {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  
 }
 
-.header__burger {
-  height: 20px;
-  width: 30px;
-  position: relative;
+.nav__checkbox {
   display: none;
 }
 
+.header__burger {
+  display: none;
+  z-index: 10;
+}
+
 .header__burger span {
-  background-color: black;
-  position: absolute;
-  width: 100%;
+  position: relative;
+  display: block;
+  width: 24px;
   height: 2px;
-  top: 9px;
-  left: 0;
+  background-color: #1A212F;
   transition: all 0.3s ease-in-out;
 }
 
-.header__burger:before,
-.header__burger:after {
-  content: "";
-  background-color: black;
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  transition: all 0.3s ease-in-out;
+.header__burger span:not(:last-child) {
+  margin-bottom: 5px;
 }
 
-.header__burger:before {
-  top: 0;
-}
-
-.header__burger:after {
-  bottom: 0;
-}
-
-.header__burger:hover:before {
+.nav__checkbox:checked ~ .header__burger .nav__toggle-first {
   transform: rotate(45deg);
-  top: 9px;
+  top: 7px;
 }
 
-.header__burger:hover:after {
+.nav__checkbox:checked ~ .header__burger .nav__toggle-third {
   transform: rotate(-45deg);
-  bottom: 9px;
+  bottom: 7px;
 }
 
-.header__burger:hover span {
-  transform: scale(0);
+.nav__checkbox:checked ~ .header__burger .nav__toggle-second {
+  opacity: 0;
 }
 
+.nav__checkbox:checked ~ .nav__header {
+  left: 0;
+}
 
 .heading {
   margin-bottom: 20px;
@@ -400,6 +392,13 @@ h6 {
   }
   .layout_item1 {
     display: none;
+    position: absolute;
+    background-color: #fff;
+    z-index: 5;
+    box-shadow: 0 0 10px lightgrey;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 10px;
   }
   .layout_products > :nth-child(2) {
     width: 100%;
@@ -418,6 +417,7 @@ h6 {
     background-repeat: no-repeat;
     border-radius: 10px;
   }
+  
 } 
 
  @media (max-width: 767px) {
@@ -439,9 +439,7 @@ h6 {
   .header__burger {
     display: block;
   }
-  .nav__header {
-    display: none;
-  }
+  
   .banner {
     background-image: url(../images/bunner3.jpg);
     background-repeat: no-repeat;
@@ -465,5 +463,22 @@ h6 {
   }
   .contacts__body {
     width: 100%;
+  }
+  .nav__header {
+    position: absolute;
+    width: 100%;
+    background: #FAC663;
+    padding-top: 200px;
+    display: block;
+    left: -100%;
+    transition: left 0.4s ease-in-out;
+    padding-left: 10%;
+  }
+  .nav__link {
+    display: block;
+    font-size: 20px;
+  }
+  .logo {
+    width: 40px;
   }
 }
