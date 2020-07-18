@@ -280,6 +280,20 @@ h6 {
   margin-top: 16px;
 }
 
+.form__close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  color: black;
+  display: none;
+}
+
+.layout_item1:target {
+  opacity: 1;
+  visibility: visible;
+}
+
 .banner {
   background-image: url(../images/banner.jpg);
   min-height: 380px;
@@ -391,7 +405,6 @@ h6 {
     justify-content: space-between;
   }
   .layout_item1 {
-    display: none;
     position: absolute;
     background-color: #fff;
     z-index: 5;
@@ -399,6 +412,8 @@ h6 {
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
   }
   .layout_products > :nth-child(2) {
     width: 100%;
@@ -417,7 +432,9 @@ h6 {
     background-repeat: no-repeat;
     border-radius: 10px;
   }
-  
+  .form__close {
+    display: inline;
+  }
 } 
 
  @media (max-width: 767px) {
