@@ -72,6 +72,9 @@ a {
 
 .card__body {
   padding: 25px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .button {
